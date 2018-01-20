@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from "react";
-import * as API from './services/api';
+import * as API from '../services/api';
 
 export class Main extends React.PureComponent {
     constructor(props) {
