@@ -37,5 +37,7 @@
     "eslint:lint": "eslint src",
     "eslint:lint--fix": "eslint --fix src",
     "flow": "flow"
-  }
+  },
+  "author": "Soulaymane Zemmouri",
+  "license": "MIT"
 }
