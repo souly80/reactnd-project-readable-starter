@@ -16,7 +16,7 @@ export class Main extends React.PureComponent {
     }
 
     renderCategories = () => {
-        let retValues: any[] = [];
+        let retValues = [];
         if(this.state.categories.length !== 0) {
             this.state.categories.map((category) => {
                 retValues.push(<div>{category.name}</div>);
