@@ -1,16 +1,30 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import {Link} from "react-router-dom";
 
-const Header = () => (
-    <header>
-        <nav>
-            <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/category'>Category</Link></li>
-                <li><Link to='/modify'>Modify</Link></li>
-            </ul>
-        </nav>
-    </header>
-);
+class Header extends React.Component {
+    render () {
+        return <div>
+            <div id="navbar">
+                <ul>
+                    <li>
+                        <Link to='/'>
+                            <div>home</div>
+                        </Link>
+                    </li>
+                    {this.props.categories &&
+                    this.props.categories.map((category) => {
+                        return (
+                            <li>
+                                <Link to={'/category' + category.path}>
+                                    <div>{category.name}</div>
+                                </Link>
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
+        </div>
+    }
+}
 
 export default Header;
