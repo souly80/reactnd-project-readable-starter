@@ -1,37 +1,17 @@
-// @flow
+import React, { Component } from 'react'
+import Header from "./header";
 
-import * as React from "react";
-import * as API from '../services/api';
-import getCategories from "../actions/index";
-
-export class Main extends React.PureComponent {
-
-    constructor(props) {
-        super(props);
-        //const store = this.props.store;
-        //store.dispatch(getCategories(this.props.store.getState(), ["test","test2"]));
-
-        //this.getCategories();
-    }
-
-    getCategories() {
-        API.getCategories().then((categories) => {
-            this.setState({categories});
-        })
-    }
-
-    renderCategories = () => {
-        return "";
-        let retValues = [];
-        if(this.state.categories.length !== 0) {
-            this.state.categories.map((category) => {
-                retValues.push(<div>{category.name}</div>);
-            });
-        }
-        return retValues;
-    }
+class Main extends Component {
 
     render() {
-        return <div>{this.renderCategories()}</div>;
+        const { categories } = this.props
+
+        return (
+            <div>
+                <Header categories={categories}/>
+            </div>
+        )
     }
 }
+
+export default Main

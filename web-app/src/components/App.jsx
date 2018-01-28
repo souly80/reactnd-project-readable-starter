@@ -1,55 +1,56 @@
-import React, { Component } from 'react';
-import {Main} from "./main";
-import {Category} from "./category";
-import {Modify} from "./modify";
-import {Route, Switch} from "react-router-dom";
-import Header from "./header";
-import {connect} from "react-redux";
-import getCategories from "../actions/index";
-
+import React, { Component } from 'react'
+import Main from './main'
+import { Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
+import * as api from './../services/api'
+import { withRouter } from 'react-router'
+import { convertToArray } from '../helpers/helpers'
+import {setCategories} from "../actions/categories";
 
 class App extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {categories: ""};
+    componentWillMount() {
+        this.props.getAllCategories()
     }
-
-    componentDidMount() {
-        /*const {store} = this.props;
-        store.subscribe(() => {
-            this.setState({categories: store.getState().categories});
-        });*/
-    }
-
-    clickHandler = () =>{
-        this.props.viewCategories("nf");
-    }
-
 
     render() {
+        const { history, categories } = this.props
+
+
         return (
             <div>
-                <Header />
-                <button onClick={this.clickHandler}>Clickme</button>
-                <h1>{this.props.categories && this.props.categories.content}</h1>
                 <Switch>
-                    <Route exact path='/' render={() => <Main store={this.props.store} />}/>
-                    <Route path='/category' component={Category}/>
-                    <Route path='/modify' component={Modify}/>
+                    <Route
+                        exact
+                        path="/"
+                        render={({ match }) =>
+                            <Main
+                                categories={categories}
+                                history={history}
+                            />}
+                    />
+
+
                 </Switch>
             </div>
         )
     }
 }
 
-const mapDispachToProps = (dispach) => {
-    return {viewCategories: (categories) => dispach(getCategories(categories))}
-};
+function mapStateToProps(state) {
+    return {
+        categories: state.categories,
 
-const mapStateToProps = (categories) => {
-  return {
-      categories : categories ? categories : {content:"test"}
-  }
-};
+    }
+}
 
-export default connect(mapStateToProps, mapDispachToProps)(App);
+function mapDispatchToProps(dispatch) {
+    return {
+        getAllCategories: () => {
+            api.getAllCategories().then(categories => {
+                dispatch(setCategories(convertToArray(categories)))
+            })
+        },
+
+    }
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
