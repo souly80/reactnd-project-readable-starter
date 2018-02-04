@@ -1,7 +1,6 @@
-export const SET_CATEGORIES = 'SET_CATEGORIES'
-export function setCategories(categories) {
-    return {
-        type: SET_CATEGORIES,
-        categories
-    }
-}
+export const GET_CATEGORIES = 'GET_CATEGORIES';
+
+
+export const getCategories = ({categories}) => {
+    return {type: GET_CATEGORIES, categories};
+};
