@@ -1,20 +1,50 @@
+
 import {
-  SET_POSTS,
-} from '../actions'
+    GET_POSTS,
+    ADD_POST,
+    UPVOTE_POST,
+    DOWNVOTE_POST,
+    EDIT_POST,
+    DELETE_POST} from '../actions/posts';
+import {objectFromArray} from '../utils/helpers'
 
 export const posts = (state = {}, action) => {
-  switch (action.type) {
+    const {posts, post_id, post} = action;
 
-
-    case SET_POSTS:
-      const { posts } = action
-      let retValuesPosts = []
-      posts.forEach(post => {
-        retValuesPosts = {
-          ...retValuesPosts,
-          [post.id]: post
-        }
-      })
-      return retValuesPosts
-  }
-}
+    switch (action.type) {
+        case GET_POSTS:
+            const filteredPosts = posts.filter(p => (p.deleted !== true))
+            return {
+                ...state,
+                ...objectFromArray(filteredPosts, 'id')
+            }
+        case ADD_POST:
+        case EDIT_POST:
+            return {
+                ...state,
+                [post.id]: post
+            };
+        case UPVOTE_POST:
+            return {
+                ...state,
+                [post_id]: {
+                    ...state[post_id],
+                    'voteScore': state[post_id]['voteScore'] + 1
+                }
+            };
+        case DOWNVOTE_POST:
+            return {
+                ...state,
+                [post_id]: {
+                    ...state[post_id],
+                    'voteScore': state[post_id]['voteScore'] - 1
+                }
+            };
+        case DELETE_POST:
+            var newState = {...state}
+            delete newState[post_id]
+            return newState;
+        default:
+            return state;
+    }
+};

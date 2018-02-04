@@ -1,12 +1,9 @@
+import {GET_CATEGORIES} from '../actions/categories';
+import {objectFromArray} from "../utils/helpers";
 
-import {SET_CATEGORIES} from "../actions/categories";
-
-export const categories = (state = [], action) => {
-    switch (action.type) {
-        case SET_CATEGORIES:
-            const { categories } = action
-            return categories
-        default:
-            return state
-    }
+export const categories = (state = {}, action) => {
+    const {categories} = action;
+        if(action.type === GET_CATEGORIES)
+            return objectFromArray(categories, 'name');
+        return state;
 }
