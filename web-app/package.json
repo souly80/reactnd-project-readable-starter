@@ -1,46 +1,23 @@
 {
+  "name": "readable",
+  "version": "1.0.0",
   "dependencies": {
-    "prop-types": "^15.5.8",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "concurrently": "^3.5.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-loading": "^0.1.4",
+    "react-modal": "^2.2.4",
     "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
+    "react-router-dom": "^4.1.2",
+    "react-scripts": "1.0.11",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.3",
-    "babel-loader": "^7.1.2",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "css-loader": "^0.28.7",
-    "eslint": "^4.12.1",
-    "eslint-plugin-jest": "^21.3.2",
-    "eslint-plugin-react": "^7.5.1",
-    "file-loader": "^1.1.5",
-    "flow-bin": "^0.60.1",
-    "html-webpack-plugin": "^2.30.1",
-    "jest": "^21.2.1",
-    "path": "^0.12.7",
-    "react-hot-loader": "^3.1.3",
-    "react-scripts": "0.9.5",
-    "svg-url-loader": "^2.3.0",
-    "webpack": "^3.9.1",
-    "webpack-dev-server": "^2.9.5"
+    "sort-by": "^1.2.0",
+    "timeago.js": "^3.0.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --progress --colors --config ./webpack.config.js",
-    "build": "babel src --out-dir dist",
-    "build:prod": "webpack",
+    "start": "concurrently 'react-scripts start' 'node ../api-server/server.js'",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "eslint:lint": "eslint src",
-    "eslint:lint--fix": "eslint --fix src",
-    "flow": "flow"
-  },
-  "author": "Soulaymane Zemmouri",
-  "license": "MIT"
+    "eject": "react-scripts eject"
+  }
 }
