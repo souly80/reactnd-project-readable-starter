@@ -11,10 +11,8 @@ import * as API from '../services/api-helper';
 import VoteScore from './vote-score';
 import EditControl from './edit-control';
 import NewComment from './add/new-comment';
-import {
-    DELETE_COMMENT, deleteComment, DOWNVOTE_COMMENT, downvoteComment, UPVOTE_COMMENT,
-    upvoteComment
-} from "../actions/comments";
+import {DELETE_COMMENT, DOWNVOTE_COMMENT, UPVOTE_COMMENT} from "../actions/types";
+import {deleteComment, downvoteComment, upvoteComment} from "../actions/comments";
 
 class Comment extends Component {
 

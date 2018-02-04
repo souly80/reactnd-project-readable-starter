@@ -9,7 +9,8 @@ import * as API from '../../services/api-helper';
 import Post from '../post';
 import Comment from '../comment';
 import NewComment from '../add/new-comment';
-import {LOAD_COMMENTS, loadComments} from "../../actions/comments";
+import {LOAD_COMMENTS} from "../../actions/types";
+import {loadComments} from "../../actions/comments";
 
 class PostDetailsView extends Component {
   constructor(props) {

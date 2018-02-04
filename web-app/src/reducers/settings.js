@@ -1,6 +1,6 @@
 import { SET_SORTING_PREFERENCE_BY_DATE,
     SET_SORTING_PREFERENCE_BY_SCORE
-} from '../actions/settings';
+} from '../actions/types';
 
 export const prefrences = (state = {}, action) => {
 

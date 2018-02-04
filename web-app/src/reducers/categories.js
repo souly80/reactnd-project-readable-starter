@@ -1,4 +1,4 @@
-import {GET_CATEGORIES} from '../actions/categories';
+import {GET_CATEGORIES} from '../actions/types';
 import {objectFromArray} from "../utils/helpers";
 
 export const categories = (state = {}, action) => {

@@ -5,7 +5,7 @@ import {
     UPVOTE_POST,
     DOWNVOTE_POST,
     EDIT_POST,
-    DELETE_POST} from '../actions/posts';
+    DELETE_POST} from '../actions/types';
 import {objectFromArray} from '../utils/helpers'
 
 export const posts = (state = {}, action) => {

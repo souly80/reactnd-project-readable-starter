@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
 
-import {
-    SET_SORTING_PREFERENCE_BY_DATE, SET_SORTING_PREFERENCE_BY_SCORE, setSortingPreferenceByDate,
-    setSortingPreferenceByScore
-} from "../actions/settings";
+import {setSortingPreferenceByDate, setSortingPreferenceByScore} from "../actions/settings";
+
+import {SET_SORTING_PREFERENCE_BY_DATE, SET_SORTING_PREFERENCE_BY_SCORE} from "../actions/types";
+
 
 class SelectSort extends Component {
 

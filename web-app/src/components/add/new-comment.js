@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import * as API from '../../services/api-helper';
-import {ADD_COMMENT, addComment, EDIT_COMMENT, editComment} from "../../actions/comments";
+import {ADD_COMMENT, EDIT_COMMENT} from "../../actions/types";
+import {addComment, editComment} from "../../actions/comments";
 import {Link} from "react-router-dom";
 
 class NewComment extends Component {

@@ -4,8 +4,9 @@ import {connect} from 'react-redux';
 
 import * as API from '../../services/api-helper';
 import {arrayFromObject} from '../../utils/helpers';
-import {ADD_POST, addPost, EDIT_POST, editPost} from "../../actions/posts";
+import {ADD_POST, EDIT_POST} from "../../actions/types";
 import {Link} from "react-router-dom";
+import {addPost, editPost} from "../../actions/posts";
 
 class NewPost extends Component {
 

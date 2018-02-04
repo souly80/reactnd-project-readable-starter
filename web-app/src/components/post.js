@@ -12,7 +12,8 @@ import * as API from '../services/api-helper';
 import VoteScore from './vote-score'
 import EditControl from './edit-control'
 import NewPost from './add/new-post';
-import {DELETE_POST, deletePost, DOWNVOTE_POST, downvotePost, UPVOTE_POST, upvotePost} from "../actions/posts";
+import {DELETE_POST, DOWNVOTE_POST, UPVOTE_POST} from "../actions/types";
+import {deletePost, downvotePost, upvotePost} from "../actions/posts";
 
 class Post extends Component {
   static propTypes = {

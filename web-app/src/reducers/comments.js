@@ -3,7 +3,7 @@ import{  LOAD_COMMENTS,
     UPVOTE_COMMENT,
     DOWNVOTE_COMMENT,
     EDIT_COMMENT,
-    DELETE_COMMENT} from '../actions/comments';
+    DELETE_COMMENT} from '../actions/types';
 import {objectFromArray} from '../utils/helpers'
 
 export const comments = (state = {}, action) => {

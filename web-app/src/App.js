@@ -7,9 +7,10 @@ import Header from './components/header';
 import CategoryVIew from './components/views/category';
 import PostDetailsView from './components/views/post-details';
 import {connect} from 'react-redux';
-import {GET_POSTS, loadPosts} from "./actions/posts";
-import {GET_CATEGORIES, getCategories} from "./actions/categories";
+import {loadPosts} from "./actions/posts";
+import {getCategories} from "./actions/categories";
 import * as API from "./services/api-helper";
+import {GET_CATEGORIES, GET_POSTS} from "./actions/types";
 
 class App extends Component {
   constructor(props) {
