@@ -23,6 +23,7 @@ class Post extends Component {
 
   initialState = {
     isModalOpen: false,
+      commentsCount: 0
   };
 
   constructor(props) {
@@ -100,9 +101,16 @@ class Post extends Component {
     )
   }
 
+  getCommentCounts (post_id) {
+      API.fetchPostComments(post_id).then(comments => {
+          this.setState({commentsCount: comments.length});
+      });
+  }
+
   render() {
-    const {post} = this.props
-    const date = timeago().format(post.timestamp);
+      const {post} = this.props;
+      this.getCommentCounts(post.id);
+      const date = timeago().format(post.timestamp);
     const {is_detail} = this.props;
 
     return (
@@ -114,7 +122,9 @@ class Post extends Component {
           {is_detail ? <EditControl onEdit={() => {this.editPost()}} onDelete={() => {this.deletePost()}}/>
               : ""
           }
+          <strong>{this.state.commentsCount} </strong><span>comments</span>
         {this.generateModal(post)}
+        <EditControl onEdit={() => {this.editComment()}} onDelete={() => {this.deleteComment()}}/>
         <hr/>
       </div>
     );
