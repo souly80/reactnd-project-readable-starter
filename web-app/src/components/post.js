@@ -119,12 +119,9 @@ class Post extends Component {
         <p>{date}  by {post.author}  in <Link to={`/${post.category}`}>{post.category}</Link></p>
         <p>{post.body}</p>
         <VoteScore score={post.voteScore} onUpvote={() => {this.upvotePost()}} onDownvote={() => {this.downvotePost()}} />
-          {is_detail ? <EditControl onEdit={() => {this.editPost()}} onDelete={() => {this.deletePost()}}/>
-              : ""
-          }
           <strong>{this.state.commentsCount} </strong><span>comments</span>
         {this.generateModal(post)}
-        <EditControl onEdit={() => {this.editComment()}} onDelete={() => {this.deleteComment()}}/>
+        <EditControl onEdit={() => {this.editPost()}} onDelete={() => {this.deletePost()}}/>
         <hr/>
       </div>
     );
