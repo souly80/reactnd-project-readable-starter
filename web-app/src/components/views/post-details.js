@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
 
-import ReactLoading from 'react-loading';
-
 import {arrayFromObject} from '../../utils/helpers';
 import * as API from '../../services/api-helper';
 import Post from '../post';
@@ -11,6 +9,7 @@ import Comment from '../comment';
 import NewComment from '../add/new-comment';
 import {LOAD_COMMENTS} from "../../actions/types";
 import {loadComments} from "../../actions/comments";
+import {Redirect} from "react-router-dom";
 
 class PostDetailsView extends Component {
   constructor(props) {
@@ -48,7 +47,7 @@ class PostDetailsView extends Component {
         </div>
       );
     }
-    return <ReactLoading type="bubbles" color="#444"/>;
+      return <Redirect to="/notfound" />
   }
 }
 

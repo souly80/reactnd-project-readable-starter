@@ -11,6 +11,7 @@ import {loadPosts} from "./actions/posts";
 import {getCategories} from "./actions/categories";
 import * as API from "./services/api-helper";
 import {GET_CATEGORIES, GET_POSTS} from "./actions/types";
+import NotFound from "./components/not-found";
 
 class App extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/newpost' component={NewPost}/>
+            <Route exact path='/notfound' component={NotFound}/>
             <Route exact path='/:category_name' component={CategoryVIew}/>
             <Route exact path='/:category_name/:post_id' component={PostDetailsView}/>
           </Switch>
